@@ -64,7 +64,7 @@ public class User {
         this.address = address;
     }
 
-    public String getApprise() {
+    public String getAppraise() {
         return appraise;
     }
 

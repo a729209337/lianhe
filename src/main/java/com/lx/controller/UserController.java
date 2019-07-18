@@ -40,7 +40,7 @@ public class UserController {
     @ApiOperation(value = "注册接口")
     public String register(User user) {
         userService.register(user);
-        return "index";
+        return "1";
     }
 
     /**

@@ -13,6 +13,6 @@
     </select>
 
     <insert id="register" parameterType="User">
-        insert into user (id, phoneNumber, password, name, address) values(null, #{phoneNumber}, #{password}, #{name}, #{address})
+        insert into user (phoneNumber, password, name, address) values(#{phoneNumber}, #{password}, #{name}, #{address})
     </insert>
 </mapper>
