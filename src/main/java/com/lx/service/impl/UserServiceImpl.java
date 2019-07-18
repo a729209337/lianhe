@@ -17,4 +17,15 @@ public class UserServiceImpl implements UserService {
         int result = userMapper.login(user);
         return result > 0 ? true : false;
     }
+
+    @Override
+    public boolean validatePhoneNum(String phoneNumber) {
+        int result = userMapper.validatePhoneNum(phoneNumber);
+        return result > 0 ? false : true;
+    }
+
+    @Override
+    public void register(User user) {
+        userMapper.register(user);
+    }
 }
