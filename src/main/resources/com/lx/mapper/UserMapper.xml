@@ -7,4 +7,12 @@
     <select id="login" parameterType="User" resultType="int">
         select count(1) from user where phoneNumber = #{phoneNumber} and password = #{password}
     </select>
+
+    <select id="validatePhoneNum" parameterType="string" resultType="int">
+        select count(1) from user where phoneNumber = #{phoneNumber}
+    </select>
+
+    <insert id="register" parameterType="User">
+        insert into user (id, phoneNumber, password, name, address) values(null, #{phoneNumber}, #{password}, #{name}, #{address})
+    </insert>
 </mapper>
