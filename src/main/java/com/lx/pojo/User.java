@@ -19,10 +19,10 @@ public class User {
     private String address;
 
     @ApiModelProperty(value = "对商品的评价")
-    private String apprise;
+    private String appraise;
 
     @ApiModelProperty(value = "对商品评价的图片")
-    private String appriseImg;
+    private String appraiseImg;
 
     public int getId() {
         return id;
@@ -65,19 +65,19 @@ public class User {
     }
 
     public String getApprise() {
-        return apprise;
+        return appraise;
     }
 
-    public void setApprise(String apprise) {
-        this.apprise = apprise;
+    public void setAppraise(String appraise) {
+        this.appraise = appraise;
     }
 
-    public String getAppriseImg() {
-        return appriseImg;
+    public String getAppraiseImg() {
+        return appraiseImg;
     }
 
-    public void setAppriseImg(String appriseImg) {
-        this.appriseImg = appriseImg;
+    public void setAppraiseImg(String appraiseImg) {
+        this.appraiseImg = appraiseImg;
     }
 
     @Override
@@ -88,8 +88,8 @@ public class User {
                 ", password='" + password + '\'' +
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
-                ", apprise='" + apprise + '\'' +
-                ", appriseImg='" + appriseImg + '\'' +
+                ", appraise='" + appraise + '\'' +
+                ", appraiseImg='" + appraiseImg + '\'' +
                 '}';
     }
 }
