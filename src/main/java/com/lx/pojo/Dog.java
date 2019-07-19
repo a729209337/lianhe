@@ -4,7 +4,7 @@ import io.swagger.annotations.ApiModelProperty;
 
 public class Dog {
 
-    @ApiModelProperty(value = "dog表的主键")
+    @ApiModelProperty(value = "dog表的主键",example = "123")
     private int id;
 
     @ApiModelProperty(value = "dog的名字")

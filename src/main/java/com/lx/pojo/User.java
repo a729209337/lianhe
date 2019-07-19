@@ -3,7 +3,8 @@ package com.lx.pojo;
 import io.swagger.annotations.ApiModelProperty;
 
 public class User {
-    @ApiModelProperty(value = "user表的主键")
+
+    @ApiModelProperty(value = "user表的主键",example = "123")
     private int id;
 
     @ApiModelProperty(value = "手机号")
