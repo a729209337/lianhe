@@ -8,5 +8,12 @@ public interface UserService {
 
     boolean validatePhoneNum(String phoneNumber);
 
+    boolean validateName(String name);
+
     void register(User user);
+
+//    boolean validatePassword(String password);
+
+    void updatePassword(String password);
+
 }

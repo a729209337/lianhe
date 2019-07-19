@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lx.mapper.PetMapper">
+    <select id="showAllPet" resultType="pet">
+        select * from pet
+    </select>
+
+    <select id="showAllDog" resultType="pet">
+        select * from pet where pid = 1
+    </select>
+
+    <select id="showAllCat" resultType="pet">
+        select * from pet where pid = 2
+    </select>
+
+    <select id="showOnePet" resultType="pet">
+        select p.*, s.storeName, s.storeAddress from pet p left join store s on p.storeId = s.id where p.id = #{id}
+    </select>
+</mapper>

@@ -5,7 +5,7 @@
 
 <mapper namespace="com.lx.mapper.UserMapper">
     <select id="login" parameterType="User" resultType="int">
-        select count(1) from user where phoneNumber = #{phoneNumber} and password = #{password}
+        select count(1) from user where name = #{name} and password = #{password}
     </select>
 
     <select id="validatePhoneNum" parameterType="string" resultType="int">
@@ -13,6 +13,18 @@
     </select>
 
     <insert id="register" parameterType="User">
-        insert into user (phoneNumber, password, name, address) values(#{phoneNumber}, #{password}, #{name}, #{address})
+        insert into user (phoneNumber, password, name) values(#{phoneNumber}, #{password}, #{name})
     </insert>
+
+    <!--<select id="validatePassword" parameterType="String" resultType="int">
+        select count(1) from user where password = #{password}
+    </select>-->
+
+    <select id="validateName" parameterType="String" resultType="int">
+        select count(1) from user where name = #{name}
+    </select>
+
+    <update id="updatePassword" parameterType="String">
+        update user set password = #{password}
+    </update>
 </mapper>
