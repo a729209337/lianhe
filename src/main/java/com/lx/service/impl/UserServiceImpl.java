@@ -25,7 +25,24 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public boolean validateName(String name) {
+        int result = userMapper.validateName(name);
+        return result > 0 ? false : true;
+    }
+
+    @Override
     public void register(User user) {
         userMapper.register(user);
+    }
+
+    /*@Override
+    public boolean validatePassword(String password) {
+        int result = userMapper.validatePassword(password);
+        return result > 0 ? true : false;
+    }*/
+
+    @Override
+    public void updatePassword(String password) {
+        userMapper.updatePassword(password);
     }
 }

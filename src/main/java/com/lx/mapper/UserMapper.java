@@ -9,5 +9,12 @@ public interface UserMapper {
 
     int validatePhoneNum(String phoneNumber);
 
+    int validateName(String name);
+
     void register(User user);
+
+//    int validatePassword(String password);
+
+    void updatePassword(String password);
+
 }
