@@ -62,4 +62,16 @@ public class PetController {
         Pet pet = petService.showOnePet(id);
         return pet;
     }
+
+    /**
+     * 通过name查询所有对应的宠物
+     * @param petName
+     * @return
+     */
+    @RequestMapping("/search")
+    @ApiOperation(value = "通过输入的字查询对应的所有宠物")
+    public List<Pet> search(String petName) {
+        List<Pet> petList = petService.search(petName);
+        return petList;
+    }
 }

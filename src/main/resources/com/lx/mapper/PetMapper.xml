@@ -19,4 +19,14 @@
     <select id="showOnePet" resultType="pet">
         select p.*, s.storeName, s.storeAddress from pet p left join store s on p.storeId = s.id where p.id = #{id}
     </select>
+
+    <select id="search" resultType="pet" parameterType="string">
+        select * from pet
+        <where>
+
+                <!--petName like '%${petName}%'使用这种方法时必须传一个对象,不能传基本类型-->
+                petName like concat('%',#{petName},'%')
+
+        </where>
+    </select>
 </mapper>

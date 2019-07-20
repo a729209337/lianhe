@@ -38,4 +38,9 @@ public class PetServiceImpl implements PetService {
         Pet pet = petMapper.showOnePet(id);
         return pet;
     }
+
+    @Override
+    public List<Pet> search(String petName) {
+        return petMapper.search(petName);
+    }
 }

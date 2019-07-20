@@ -12,4 +12,6 @@ public interface PetService {
     List<Pet> showAllCat();
 
     Pet showOnePet(int id);
+
+    List<Pet> search(String petName);
 }

@@ -14,4 +14,6 @@ public interface PetMapper {
     List<Pet> showAllCat();
 
     Pet showOnePet(int id);
+
+    List<Pet> search(String petName);
 }
