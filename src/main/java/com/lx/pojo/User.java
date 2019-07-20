@@ -64,7 +64,7 @@ public class User {
         this.address = address;
     }
 
-    public String getApprise() {
+    public String getAppraise() {
         return appraise;
     }
 
@@ -78,18 +78,5 @@ public class User {
 
     public void setAppraiseImg(String appraiseImg) {
         this.appraiseImg = appraiseImg;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", password='" + password + '\'' +
-                ", name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                ", appraise='" + appraise + '\'' +
-                ", appraiseImg='" + appraiseImg + '\'' +
-                '}';
     }
 }
