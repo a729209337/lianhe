@@ -4,6 +4,7 @@ package com.lx.controller;
 import com.lx.pojo.ShopAddress;
 import com.lx.pojo.User;
 import com.lx.service.UserService;
+import com.lx.utils.UUIDUtils;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -29,8 +30,13 @@ public class UserController {
     @ApiOperation(value = "登录接口, 1表示成功、0表示失败")
     public String login(User user) {
         boolean result = userService.login(user);
+       String str = null;
+
         if (result) {
-            return "1";
+         str  = UUIDUtils.creatUUID();
+         user.setToken(str);
+         userService.updateToken(user);
+            return str;
         } else {
             return "0";
         }
@@ -137,5 +143,15 @@ public class UserController {
         List<ShopAddress> shopAddresses = userService.showAllAddress(phoneNum);
         return shopAddresses;
     }
-
+    @RequestMapping("/findByToken")
+    @ApiOperation(value = "token是否存在接口")
+    public String findByToken (String token) {
+        boolean result = userService.findByToken(token);
+        System.out.println(token);
+        if (result) {
+            return "1";
+        } else {
+            return "0";
+        }
+    }
 }

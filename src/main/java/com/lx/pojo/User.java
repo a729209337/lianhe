@@ -40,6 +40,16 @@ public class User {
     @ApiModelProperty(value = "和address表关联的字段", example = "1")
     private int shopId;
 
+    private String token;
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
     public int getId() {
         return id;
     }

@@ -25,4 +25,6 @@ public interface UserMapper {
     void insertAddress(ShopAddress shopAddress);
 
     List<ShopAddress> showAllAddress(String phoneNum);
+    int findByToken(String token);
+    void updateToken(User user);
 }

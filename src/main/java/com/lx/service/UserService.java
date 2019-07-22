@@ -24,4 +24,6 @@ public interface UserService {
     void insertAddress(ShopAddress shopAddress);
 
     List<ShopAddress> showAllAddress(String phoneNum);
+    void updateToken(User user);
+    boolean findByToken (String token);
 }
