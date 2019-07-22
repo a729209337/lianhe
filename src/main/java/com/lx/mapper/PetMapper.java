@@ -16,4 +16,6 @@ public interface PetMapper {
     Pet showOnePet(int id);
 
     List<Pet> search(String petName);
+
+    List<Pet> searchByCondition(Pet pet);
 }

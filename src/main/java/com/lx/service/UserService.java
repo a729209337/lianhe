@@ -1,6 +1,9 @@
 package com.lx.service;
 
+import com.lx.pojo.ShopAddress;
 import com.lx.pojo.User;
+
+import java.util.List;
 
 public interface UserService {
 
@@ -14,6 +17,11 @@ public interface UserService {
 
 //    boolean validatePassword(String password);
 
-    void updatePassword(String password);
+    void updatePassword(User user);
 
+    List<User> showAppraise();
+
+    void insertAddress(ShopAddress shopAddress);
+
+    List<ShopAddress> showAllAddress(String phoneNum);
 }

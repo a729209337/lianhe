@@ -24,7 +24,19 @@
         select count(1) from user where name = #{name}
     </select>
 
-    <update id="updatePassword" parameterType="String">
-        update user set password = #{password}
+    <update id="updatePassword" parameterType="user">
+        update user set password = #{password} where phoneNumber = #{phoneNumber}
     </update>
+
+    <select id="showAppraise" resultType="user">
+        select u.*, p.petName, p.storeId from user u left join pet p on u.petId = p.id
+    </select>
+
+    <insert id="insertAddress" parameterType="shopAddress">
+        insert into shopaddress (shopName, shopPhone, shopArea, shopAddress, shopCode, phoneNum)values(#{shopName}, #{shopPhone}, #{shopArea}, #{shopAddress}, #{shopCode}, #{phoneNum})
+    </insert>
+
+    <select id="showAllAddress" parameterType="String" resultType="shopAddress">
+        select * from shopaddress where phoneNum = #{phoneNum}
+    </select>
 </mapper>

@@ -4,7 +4,7 @@ import io.swagger.annotations.ApiModelProperty;
 
 public class Store {
 
-    @ApiModelProperty(value = "store表的主键",example = "123")
+    @ApiModelProperty(value = "store表的主键", example = "1")
     private int id;
 
     @ApiModelProperty(value = "商店的名字")

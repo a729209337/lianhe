@@ -1,7 +1,10 @@
 package com.lx.mapper;
 
+import com.lx.pojo.ShopAddress;
 import com.lx.pojo.User;
 import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
 
 @Mapper
 public interface UserMapper {
@@ -15,6 +18,11 @@ public interface UserMapper {
 
 //    int validatePassword(String password);
 
-    void updatePassword(String password);
+    void updatePassword(User user);
 
+    List<User> showAppraise();
+
+    void insertAddress(ShopAddress shopAddress);
+
+    List<ShopAddress> showAllAddress(String phoneNum);
 }

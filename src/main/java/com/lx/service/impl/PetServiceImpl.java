@@ -43,4 +43,10 @@ public class PetServiceImpl implements PetService {
     public List<Pet> search(String petName) {
         return petMapper.search(petName);
     }
+
+    @Override
+    public List<Pet> searchByCondition(Pet pet) {
+        List<Pet> petList = petMapper.searchByCondition(pet);
+        return petList;
+    }
 }

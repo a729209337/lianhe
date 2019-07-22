@@ -1,18 +1,20 @@
 package com.lx.controller;
 
 
+import com.lx.pojo.ShopAddress;
 import com.lx.pojo.User;
 import com.lx.service.UserService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 @RestController
 @RequestMapping("/user")
-//@CrossOrigin//允许跨域的解决方案
+@CrossOrigin//允许跨域的解决方案
 public class UserController {
 
     @Autowired
@@ -24,9 +26,8 @@ public class UserController {
      * @return
      */
     @RequestMapping("/login")
-    @ApiOperation(value = "登录接口")
-    public String login(User user, HttpServletResponse response) {
-        response.setHeader("Access-Control-Allow-Origin", "*");
+    @ApiOperation(value = "登录接口, 1表示成功、0表示失败")
+    public String login(User user) {
         boolean result = userService.login(user);
         if (result) {
             return "1";
@@ -42,8 +43,7 @@ public class UserController {
      */
     @RequestMapping("/register")
     @ApiOperation(value = "注册接口")
-    public String register(User user, HttpServletResponse response) {
-        response.setHeader("Access-Control-Allow-Origin", "*");
+    public String register(User user) {
         userService.register(user);
         return "1";
     }
@@ -55,13 +55,12 @@ public class UserController {
      */
     @RequestMapping("/validatePhoneNum")
     @ApiOperation(value = "注册时验证手机号是否存在接口")
-    public String validatePhoneNum(String phoneNumber, HttpServletResponse response) {
-        response.setHeader("Access-Control-Allow-Origin", "*");
+    public String validatePhoneNum(String phoneNumber) {
         boolean result = userService.validatePhoneNum(phoneNumber);
         if (result) {
-            return "success";
+            return "1";
         } else {
-            return "fail";
+            return "0";
         }
     }
 
@@ -72,13 +71,12 @@ public class UserController {
      */
     @RequestMapping("/validateName")
     @ApiOperation(value = "注册时验证用户名是否存在接口")
-    public String validateName(String name, HttpServletResponse response) {
-        response.setHeader("Access-Control-Allow-Origin", "*");
+    public String validateName(String name) {
         boolean result = userService.validateName(name);
         if (result) {
-            return "success";
+            return "1";
         } else {
-            return "fail";
+            return "0";
         }
     }
 
@@ -99,11 +97,45 @@ public class UserController {
         }
     }*/
 
+    /**
+     * 更换密码接口
+     * @param password
+     * @return
+     */
     @RequestMapping("/updatePassword")
     @ApiOperation(value = "更换密码接口")
-    public String updatePassword(String password, HttpServletResponse response) {
-        response.setHeader("Access-Control-Allow-Origin", "*");
-        userService.updatePassword(password);
+    public String updatePassword(String password, String phoneNumber) {
+        User user = new User();
+        user.setPhoneNumber(phoneNumber);
+        user.setPassword(password);
+        userService.updatePassword(user);
         return "1";
     }
+
+    /**
+     * 展示用户热评
+     * @return
+     */
+    @RequestMapping("/showAppraise")
+    @ApiOperation(value = "展示用户热评")
+    public List<User> showAppraise() {
+        List<User> userList =userService.showAppraise();
+        return userList;
+    }
+
+    @RequestMapping("/insertAddress")
+    @ApiOperation(value = "保存收货地址接口")
+    public String insertAddress(ShopAddress shopAddress) {
+        userService.insertAddress(shopAddress);
+        return "1";
+    }
+
+    @RequestMapping("/showAllAddress")
+    @ApiOperation(value = "展示所有用户地址接口")
+    public List<ShopAddress> showAllAddress(String phoneNum) {
+        System.out.println(phoneNum);
+        List<ShopAddress> shopAddresses = userService.showAllAddress(phoneNum);
+        return shopAddresses;
+    }
+
 }

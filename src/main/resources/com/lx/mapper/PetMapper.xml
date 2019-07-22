@@ -24,9 +24,39 @@
         select * from pet
         <where>
 
-                <!--petName like '%${petName}%'使用这种方法时必须传一个对象,不能传基本类型-->
-                petName like concat('%',#{petName},'%')
+            <!--petName like '%${petName}%'使用这种方法时必须传一个对象,不能传基本类型-->
+            petName like concat('%',#{petName},'%')
 
         </where>
+    </select>
+
+    <select id="searchByCondition" parameterType="pet" resultType="pet">
+        select * from pet
+        <where>
+            <if test="petArea != null and petArea != ''">
+                petArea like concat('%',#{petArea},'%')
+            </if>
+            <choose>
+                <when test="petPrice == 1">
+                    AND petPrice between 0 and 1000000000000
+                </when>
+                <when test="petPrice != 1 and 2000 >= petPrice">
+                    AND petPrice between 0 and 2000
+                </when>
+                <when test="petPrice != 1 and (petPrice > 2000 and 5000 >= petPrice)">
+                    AND petPrice between 2000 and 5000
+                </when>
+                <when test="petPrice != 1 and (petPrice > 5000 and 10000 >= petPrice)">
+                    AND petPrice between 5000 and 10000
+                </when>
+                <when test="petPrice != 1 and petPrice > 10000">
+                    AND petPrice > 10001
+                </when>
+            </choose>
+        </where>
+
+        <if test="petSource != null and petSource != ''">
+            and petSource like CONCAT('%',#{petSource},'%')
+        </if>
     </select>
 </mapper>

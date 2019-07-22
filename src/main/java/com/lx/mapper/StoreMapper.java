@@ -7,5 +7,5 @@ import java.util.List;
 
 @Mapper
 public interface StoreMapper {
-    List<Pet> findByStoreId(int storyId);
+    List<Pet> findByStoreId(int storeId);
 }

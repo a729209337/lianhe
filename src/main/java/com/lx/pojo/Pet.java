@@ -4,16 +4,16 @@ import io.swagger.annotations.ApiModelProperty;
 
 public class Pet {
 
-    @ApiModelProperty(value = "pet表的主键",example = "123")
+    //@ApiModelProperty(value = "pet表的主键", example = "123")
     private int id;
 
     @ApiModelProperty(value = "pet的名字")
     private String petName;
 
-    @ApiModelProperty(value = "pet的价格")
-    private String petPrice;
+    @ApiModelProperty(value = "pet的价格", example = "1")
+    private double petPrice;
 
-    @ApiModelProperty(value = "pet的品种id")
+    @ApiModelProperty(value = "pet的品种id", example = "1")
     private int petSort;
 
     @ApiModelProperty(value = "pet的图片地址")
@@ -28,10 +28,10 @@ public class Pet {
     @ApiModelProperty(value = "pet的介绍")
     private String petDetail;
 
-    @ApiModelProperty(value = "pid的值：1为狗、2为猫")
+    @ApiModelProperty(value = "pid的值：1为狗、2为猫", example = "1")
     private int pid;
 
-    @ApiModelProperty(value = "和store关联的字段")
+    @ApiModelProperty(value = "和store关联的字段", example = "1")
     private String storeId;
 
     @ApiModelProperty(value = "商店的名字")
@@ -59,11 +59,11 @@ public class Pet {
         this.petName = petName;
     }
 
-    public String getPetPrice() {
+    public double getPetPrice() {
         return petPrice;
     }
 
-    public void setPetPrice(String petPrice) {
+    public void setPetPrice(double petPrice) {
         this.petPrice = petPrice;
     }
 

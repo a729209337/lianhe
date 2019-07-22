@@ -8,6 +8,6 @@
     </sql>
 
     <select id="findByStoreId" parameterType="int" resultType="pet">
-        select p.*,s.storeName,s.storeAddress from pet p inner join store s where p.storeId = s.id and s.id = #{storyId};
+        select p.*,s.storeName,s.storeAddress, s.storeLogo from pet p inner join store s where p.storeId = s.id and s.id = #{storeId};
     </select>
 </mapper>

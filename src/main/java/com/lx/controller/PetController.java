@@ -4,6 +4,7 @@ import com.lx.pojo.Pet;
 import com.lx.service.PetService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/animal")
+@CrossOrigin
 public class PetController {
 
     @Autowired
@@ -75,6 +77,20 @@ public class PetController {
     @ApiOperation(value = "通过输入的字模糊查询对应的所有宠物")
     public List<Pet> search(String petName) {
         List<Pet> petList = petService.search(petName);
+        return petList;
+    }
+
+    /**
+     * 根据条件查询出符合条件的宠物
+     * @param pet
+     * @return
+     */
+    @RequestMapping("/searchByCondition")
+    @ApiOperation(value = "根据条件查询出符合条件的宠物")
+    public List<Pet> searchByCondition(Pet pet) {
+        System.out.println(pet.getPetArea());
+        System.out.println(pet.getPetPrice());
+        List<Pet> petList = petService.searchByCondition(pet);
         return petList;
     }
 }

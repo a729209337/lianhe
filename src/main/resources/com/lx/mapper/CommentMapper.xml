@@ -4,6 +4,6 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lx.mapper.CommentMapper">
     <select id="showComment" resultType="comment">
-        select c.*, u.name from comment c left join user u on c.uid = u.id
+        select c.*, u.name, u.pictureUrl, u.address from comment c left join user u on c.uid = u.id
     </select>
 </mapper>

@@ -14,7 +14,7 @@ public class StoreServiceImpl implements StoreService {
     @Autowired
     StoreMapper storeMapper;
     @Override
-    public List<Pet> findByStoreId(int storyId) {
-        return storeMapper.findByStoreId(storyId);
+    public List<Pet> findByStoreId(int storeId) {
+        return storeMapper.findByStoreId(storeId);
     }
 }
