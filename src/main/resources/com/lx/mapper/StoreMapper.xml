@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lx.mapper.StoreMapper">
+    <sql id="pet">
+
+    </sql>
+
+    <select id="findByStoreId" parameterType="int" resultType="pet">
+        select p.*,s.storeName,s.storeAddress, s.storeLogo from pet p inner join store s where p.storeId = s.id and s.id = #{storeId};
+    </select>
+</mapper>
