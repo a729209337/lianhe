@@ -61,4 +61,15 @@ public class UserServiceImpl implements UserService {
         System.out.println(shopAddresses);
         return shopAddresses;
     }
+
+    @Override
+    public void updateToken(User user) {
+        userMapper.updateToken(user);
+    }
+
+    @Override
+    public boolean findByToken(String token) {
+        int result = userMapper.findByToken(token);
+        return result > 0 ? false : true;
+    }
 }

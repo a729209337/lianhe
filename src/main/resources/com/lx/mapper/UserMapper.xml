@@ -35,4 +35,10 @@
     <select id="showAllAddress" parameterType="String" resultType="shopAddress">
         select * from shopaddress where phoneNum = #{phoneNum}
     </select>
+    <select id="findByToken" parameterType="String" resultType="int">
+        select count(1) from user where token = #{token}
+    </select>
+    <update id="updateToken" parameterType="user">
+       update user set token = #{token} where name = #{name}
+    </update>
 </mapper>
