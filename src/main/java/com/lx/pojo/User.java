@@ -145,7 +145,7 @@ public class User {
                 ", name='" + name + '\'' +
                 ", pictureUrl='" + pictureUrl + '\'' +
                 ", address='" + address + '\'' +
-                ", appraise='" + appraise + '\'' +
+                ", Appraise='" + appraise + '\'' +
                 ", appraiseImg='" + appraiseImg + '\'' +
                 ", petId=" + petId +
                 ", petName='" + petName + '\'' +

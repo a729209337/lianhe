@@ -20,8 +20,6 @@ public interface UserMapper {
 
     void updatePassword(User user);
 
-    List<User> showAppraise();
-
     void insertAddress(ShopAddress shopAddress);
 
     List<ShopAddress> showAllAddress(String phoneNum);

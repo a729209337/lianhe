@@ -50,12 +50,6 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> showAppraise() {
-        List<User> userList = userMapper.showAppraise();
-        return userList;
-    }
-
-    @Override
     public void insertAddress(ShopAddress shopAddress) {
         userMapper.insertAddress(shopAddress);
     }

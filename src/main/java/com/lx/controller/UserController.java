@@ -112,17 +112,6 @@ public class UserController {
         return "1";
     }
 
-    /**
-     * 展示用户热评
-     * @return
-     */
-    @RequestMapping("/showAppraise")
-    @ApiOperation(value = "展示用户热评")
-    public List<User> showAppraise() {
-        List<User> userList =userService.showAppraise();
-        return userList;
-    }
-
     @RequestMapping("/insertAddress")
     @ApiOperation(value = "保存收货地址接口")
     public String insertAddress(ShopAddress shopAddress) {

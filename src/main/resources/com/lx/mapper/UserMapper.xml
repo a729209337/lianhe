@@ -28,10 +28,6 @@
         update user set password = #{password} where phoneNumber = #{phoneNumber}
     </update>
 
-    <select id="showAppraise" resultType="user">
-        select u.*, p.petName, p.storeId from user u left join pet p on u.petId = p.id
-    </select>
-
     <insert id="insertAddress" parameterType="shopAddress">
         insert into shopaddress (shopName, shopPhone, shopArea, shopAddress, shopCode, phoneNum)values(#{shopName}, #{shopPhone}, #{shopArea}, #{shopAddress}, #{shopCode}, #{phoneNum})
     </insert>
