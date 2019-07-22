@@ -76,6 +76,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean findByToken(String token) {
         int result = userMapper.findByToken(token);
-        return result > 0 ? true : false;
+        return result > 0 ? false : true;
     }
 }
