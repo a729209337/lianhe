@@ -4,6 +4,6 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lx.mapper.AppraiseMapper">
     <select id="showAppraise" resultType="appraise">
-        select a.*, u.name, u.pictureUrl, u.address from user u left join appraise a on a.uid = u.id
+        select a.*, u.name, u.pictureUrl, u.address from appraise a left join user u on a.uid = u.id
     </select>
 </mapper>

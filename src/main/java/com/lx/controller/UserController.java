@@ -23,6 +23,7 @@ public class UserController {
 
     /**
      * 登录接口
+     *
      * @param user
      * @return
      */
@@ -30,13 +31,13 @@ public class UserController {
     @ApiOperation(value = "登录接口, 1表示成功、0表示失败")
     public String login(User user) {
         boolean result = userService.login(user);
-       String str = null;
+        String token = null;
 
         if (result) {
-         str  = UUIDUtils.creatUUID();
-         user.setToken(str);
-         userService.updateToken(user);
-            return str;
+            token = UUIDUtils.creatUUID();
+            user.setToken(token);
+            userService.updateToken(user);
+            return token;
         } else {
             return "0";
         }
@@ -44,6 +45,7 @@ public class UserController {
 
     /**
      * 注册接口
+     *
      * @param user
      * @return
      */
@@ -56,6 +58,7 @@ public class UserController {
 
     /**
      * 注册时验证手机号是否已经存在
+     *
      * @param phoneNumber
      * @return
      */
@@ -72,6 +75,7 @@ public class UserController {
 
     /**
      * 注册时验证用户名是否已经存在
+     *
      * @param name
      * @return
      */
@@ -105,6 +109,7 @@ public class UserController {
 
     /**
      * 更换密码接口
+     *
      * @param password
      * @return
      */
@@ -132,15 +137,21 @@ public class UserController {
         List<ShopAddress> shopAddresses = userService.showAllAddress(phoneNum);
         return shopAddresses;
     }
-    @RequestMapping("/findByToken")
-    @ApiOperation(value = "token是否存在接口")
-    public String findByToken (String token) {
-        boolean result = userService.findByToken(token);
-        System.out.println(token);
-        if (result) {
-            return "1";
-        } else {
-            return "0";
-        }
-    }
+
+//    /**
+//     * 判断token是否存在接口
+//     * @param token
+//     * @return
+//     */
+//    @RequestMapping("/findByToken")
+//    @ApiOperation(value = "token是否存在接口")
+//    public String findByToken (String token) {
+//        boolean result = userService.findByToken(token);
+//        System.out.println(token);
+//        if (result) {
+//            return "1";
+//        } else {
+//            return "0";
+//        }
+//    }
 }
