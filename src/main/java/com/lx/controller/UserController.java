@@ -37,6 +37,7 @@ public class UserController {
             token = UUIDUtils.creatUUID();
             user.setToken(token);
             userService.updateToken(user);
+            System.out.println(token);
             return token;
         } else {
             return "0";
